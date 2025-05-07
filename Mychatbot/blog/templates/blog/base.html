@@ -1,0 +1,37 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}NeoChat{% endblock %}</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+  <script src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white/30 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold text-blue-600">NeoChat</div>
+    <ul class="flex space-x-6 text-gray-800 font-medium">
+      <li><a href="/features/" class="hover:text-blue-500 transition">New Features</a></li>
+      <li><a href="/about/" class="hover:text-blue-500 transition">About</a></li>
+      <li><a href="/contact/" class="hover:text-blue-500 transition">Contact</a></li>
+      <div class="flex items-center space-x-4">
+        <button id="theme-toggle" class="px-3 py-1 rounded-full border border-gray-400 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition">🌙</button>
+        <a href="/login/" class="px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition">Login</a>
+        <a href="/settings/" class="px-3 py-1 rounded-full bg-gray-300 text-gray-900 hover:bg-gray-400 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500 transition">Settings</a>
+      </div>
+    </ul>
+  </nav>
+
+  <div class="flex flex-col h-full pt-20">
+    {% block content %}{% endblock %}
+  </div>
+
+</body>
+</html>
